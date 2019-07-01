@@ -10,14 +10,6 @@ namespace mtgvrp.AdminSystem
     {
         public static List<AdminReports> Reports = new List<AdminReports>();
 
-        [BsonId]
-        public ObjectId Id { get; set; }
-
-        public int Type { get; set; }
-        public string Name { get; set; }
-        public string ReportMessage { get; set; }
-        public string Target { get; set; }
-
         public AdminReports(int type, string name, string reportmessage, string target = null)
         {
             Type = type;
@@ -26,9 +18,15 @@ namespace mtgvrp.AdminSystem
             Target = target;
         }
 
+        [BsonId] public ObjectId Id { get; set; }
+
+        public int Type { get; set; }
+        public string Name { get; set; }
+        public string ReportMessage { get; set; }
+        public string Target { get; set; }
+
         public static void Delete(AdminReports name)
         {
-
             Reports.Remove(name);
         }
 
